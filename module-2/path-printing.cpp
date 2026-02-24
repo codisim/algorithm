@@ -66,12 +66,14 @@ int main()
 
     while (node != -1)
     {
-        cout << node << " ";
         path.push_back(node);
         node = parent[node];
     }
 
-   
+    reverse(path.begin(), path.end());
+
+    for (int node : path)
+        cout << node << " ";
 
     return 0;
 }
