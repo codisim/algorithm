@@ -1,0 +1,1 @@
+{"name":"Local: Can Go","url":"/home/waliullah/phitron/algorithm/assignment-1/Can Go.cpp","tests":[{"id":1772003952589,"input":"5 8\n########\n#.A#...#\n#.##.#B#\n#......#\n########","output":"YES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/waliullah/phitron/algorithm/assignment-1/Can Go.cpp","group":"local","local":true}
