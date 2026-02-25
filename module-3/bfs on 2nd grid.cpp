@@ -3,6 +3,7 @@ using namespace std;
 
 char grid[105][105];
 bool vis[105][105];
+int level[105][105];
 vector<pair<int, int>> moved = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 int n, m;
 
@@ -18,6 +19,7 @@ void bfs(int si, int sj)
     queue<pair<int, int>> q;
     q.push({si, sj});
     vis[si][sj] = true;
+    level[si][sj] = 0;
 
     while (!q.empty())
     {
@@ -26,23 +28,24 @@ void bfs(int si, int sj)
         int par_i = par.first;
         int par_j = par.second;
 
-        cout << par_i << " " << par_j << endl;
+        // cout << par_i << " " << par_j << endl;
 
         for (int i = 0; i < 4; i++)
         {
             int ci = par_i + moved[i].first;
             int cj = par_j + moved[i].second;
 
-            if (valid(ci, cj) && !vis[ci][cj])
+            if (valid(ci, cj) && !vis[ci][cj] && grid[ci][cj] == '.')
             {
                 q.push({ci, cj});
                 vis[ci][cj] = true;
+                level[ci][cj] = level[par_i][par_j] + 1;
             }
         }
     }
 }
 
-int main()
+int main()                                  
 {
 
     cin >> n >> m;
@@ -51,11 +54,14 @@ int main()
         for (int j = 0; j < m; j++)
             cin >> grid[i][j];
 
-    int si, sj;
-    cin >> si >> sj;
+    int si, sj, di, dj;
+    cin >> si >> sj >> di >> dj;
 
     memset(vis, false, sizeof(vis));
+    memset(level, -1, sizeof(level));
     bfs(si, sj);
+
+    cout << level[di][dj] << endl;
 
     return 0;
 }
