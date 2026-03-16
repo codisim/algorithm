@@ -16,15 +16,15 @@ int main()
         adj_list[b].push_back({a, c});
     }
 
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << i << " -> ";
-    //     for (auto j : adj_list[i])
-    //     {
-    //         cout << "(" << j.first << ", " << j.second << ") ";
-    //     }
-    //     cout << endl;
-    // }
+    for (int i = 0; i < n; i++)
+    {
+        cout << i << " -> ";
+        for (auto j : adj_list[i])
+        {
+            cout << "(" << j.first << ", " << j.second << ") ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
