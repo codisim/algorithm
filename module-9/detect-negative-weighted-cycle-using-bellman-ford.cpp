@@ -47,8 +47,28 @@ int main()
         }
     }
 
-    for(int i = 0; i < n; i++)
-        cout << i << " -> " << dis[i] << endl;
+    bool flag = false;
+    for (auto ed : edge_list)
+    {
+        int a, b, c;
+        a = ed.a;
+        b = ed.b;
+        c = ed.c;
+
+        if (dis[a] != INT_MAX && dis[a] + c < dis[b])
+        {
+            flag = true;
+            break;
+        }
+    }
+
+    if (flag)
+        cout << "Negative cycle detected..!" << endl;
+    else
+    {
+        for (int i = 0; i < n; i++)
+            cout << i << " -> " << dis[i] << endl;
+    }
 
     return 0;
 }
