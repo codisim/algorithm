@@ -9,15 +9,14 @@ int find(int node)
         return node;
 
     int leader = find(par[node]);
+    par[node] = leader;
+
     return leader;
 }
 
 int main()
 {
-
     memset(par, -1, sizeof(par));
-    int n, e;
-    cin >> n >> e;
 
     par[0] = 1;
     par[1] = -1;
