@@ -37,11 +37,29 @@ int main()
     memset(par, -1, sizeof(par));
     memset(group_size, 1, sizeof(group_size));
 
-    dsu_union(1, 2);
+    int n, e;
+    cin >> n >> e;
 
-    for (int i = 0; i < 6; i++)
-        cout << i << "->" << par[i] << endl;
-    
+    bool cycle = false;
+
+    while (e--)
+    {
+        int a, b;
+        cin >> a >> b;
+
+        int leader1 = find(a);
+        int leader2 = find(b);
+
+        if (leader1 == leader2)
+            cycle = true;
+        else
+            dsu_union(a, b);
+    }
+
+    if (cycle)
+        cout << "Cycle detected" << endl;
+    else
+        cout << "Cycle not detected" << endl;
 
     return 0;
 }
