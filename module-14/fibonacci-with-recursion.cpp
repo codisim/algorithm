@@ -11,7 +11,6 @@ int fibo(int n)
 
 int main()
 {
-
     int val = fibo(5);
     cout << val;
     return 0;
